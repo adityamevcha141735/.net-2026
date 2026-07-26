@@ -9,8 +9,8 @@ interface IPayroll
 // Base Class
 class Employee
 {
-    public string Name { get; private set; }
-    public int Id { get; private set; }
+    public string Name;
+    public int Id;
 
     public Employee(string name, int id)
     {
@@ -22,7 +22,7 @@ class Employee
 // Derived Class
 class FullTimeEmployee : Employee, IPayroll
 {
-    public double Salary { get; private set; }
+    public double Salary;
 
     public FullTimeEmployee(string name, int id, double salary) : base(name, id)
     {
@@ -40,8 +40,7 @@ class Program
 {
     static void Main()
     {
-        FullTimeEmployee employee = new FullTimeEmployee("TONY STARK", 101, 30000);
-        IPayroll payroll = employee; // Polymorphism
-        payroll.CalculateSalary();
+        IPayroll emp = new FullTimeEmployee("NAMOR", 101, 30000);
+        emp.CalculateSalary();   // Polymorphism
     }
 }
